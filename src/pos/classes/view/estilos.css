@@ -11,10 +11,16 @@
 .card {
     -fx-background-color: #292c2d;
     -fx-background-radius: 10;
+    -fx-text-fill: #000;
 }
 
-.card:hover {
+.card:hover{
     -fx-background-color: #c9caef;
+    -fx-text-fill: #000;
+}
+
+.card:hover > Label {
+    -fx-text-fill: #000;
 }
 
 .cardTotal {
@@ -39,6 +45,7 @@
     -fx-border-color: #383839 ;
     -fx-border-width: 2; 
     -fx-border-radius: 10;
+    -fx-text-fill: #fff;
 }
 
 /*

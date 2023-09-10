@@ -1,39 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
+
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author Usuario
  */
 public class Producto {
-     private static int consecutivo;
-    
+    private static int consecutivo;
+
     private IntegerProperty codigo = new SimpleIntegerProperty();
     private StringProperty nombre = new SimpleStringProperty();
     private DoubleProperty precio = new SimpleDoubleProperty();
+    private IntegerProperty cantidad = new SimpleIntegerProperty();
 
     public Producto(){
-        this(0,"SIN DEFINIR",0);
+        this(0,"SIN DEFINIR",0, 0);
     }
-    
-    public Producto(int codigo, String nombre, double precio){
+
+    public Producto(int codigo, String nombre, double precio, int cantidad) {
         setCodigo(codigo);
         setNombre(nombre);
         setPrecio(precio);
+        setCantidad(cantidad);
     }
-    
-    public Producto(String nombre, double precio){
-        this(consecutivo++, nombre, precio);
-    } 
-    
+
+    public Producto(String nombre, double precio, int cantidad) {
+        this(consecutivo++, nombre, precio, cantidad);
+    }
+
+    public int getCantidad() {
+        return cantidad.get();
+    }
+
+    public void setCantidad(int cantidad1) {
+        if (cantidad1 < 0) {
+            throw new IllegalArgumentException("Cantidad no puede se negativo");
+
+        }
+    }
+
     public int getCodigo() {
         return codigo.get();
     }
@@ -71,16 +82,20 @@ public class Producto {
         }
         this.precio.set(precio);
     }
-    
-    public IntegerProperty codigoProperty(){
+
+    public IntegerProperty codigoProperty() {
         return codigo;
     }
-    
-    public StringProperty nombreProperty(){
+
+    public StringProperty nombreProperty() {
         return nombre;
     }
-    
-    public DoubleProperty precioProperty(){
+
+    public DoubleProperty precioProperty() {
         return precio;
+    }
+
+    public IntegerProperty cantidadProperty() {
+        return cantidad;
     }
 }

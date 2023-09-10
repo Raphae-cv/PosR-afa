@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "POS",
+            "request": "launch",
+            "mainClass": "view.POS",
+            "projectName": "PosR-afa_e9561373"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",

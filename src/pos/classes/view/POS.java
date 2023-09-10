@@ -5,6 +5,8 @@
 package view;
 
 import java.io.IOException;
+
+import controller.InicioController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -20,21 +22,11 @@ import javafx.stage.StageStyle;
  *
  * @author Usuario
  */
-public class ProductoView extends Application {
+public class POS extends Application {
     public static void main(String[] args) {
           launch(args);
     }
-// Metodo anterior para cargar la ventana
-//     @Override
-//     public void start(Stage stage) throws Exception {
-//         Parent parent = FXMLLoader.load(
-//                 getClass().getResource("/view/Inicio.fxml"));
-//         Scene scene = new Scene(parent);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
 
-// }
     // Variables para mover la ventana
     double yoffset;
     double xoffset;
@@ -45,16 +37,20 @@ public class ProductoView extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass()
-                .getResource("/view/Inicio.fxml"));
+        FXMLLoader loader = new FXMLLoader(); 
+        loader.setLocation(getClass().getResource("/view/Inicio.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Login");
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
-        primaryStage.getIcons().add(new Image(ProductoView.class.
+        primaryStage.getIcons().add(new Image(POS.class.
                 getResourceAsStream("/assets/images/logo.png")));
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        InicioController inicioController = loader.getController();
+        inicioController.cargarVentanaInicio();
 
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

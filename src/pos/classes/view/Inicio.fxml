@@ -36,7 +36,12 @@
                         <Insets />
                      </opaqueInsets>
                   </HBox>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Productos" textFill="WHITE">
+                  <Button fx:id="btnInicio" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionInicio" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Inicio" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnProducto" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionProducto" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Productos" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -44,7 +49,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Ventas" textFill="WHITE">
+                  <Button fx:id="btnVenta" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionVenta" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Ventas" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -52,7 +57,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Clientes" textFill="WHITE">
+                  <Button fx:id="btnCliente" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionCliente" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Clientes" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -60,7 +65,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Pane prefHeight="397.0" prefWidth="330.0" />
+                  <Pane prefHeight="374.0" prefWidth="330.0" />
                   <Button fx:id="btnSalir" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionSalir" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Salir" textFill="#cd3232">
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -73,6 +78,6 @@
             </VBox>
          </children>
       </Pane>
-      <StackPane fx:id="changeWindow" layoutX="543.0" layoutY="96.0" prefHeight="150.0" prefWidth="1036.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <StackPane fx:id="changeWindow" layoutX="543.0" layoutY="96.0" prefHeight="768.0" prefWidth="1036.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
