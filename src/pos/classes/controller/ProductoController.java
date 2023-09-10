@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controller;
+
 import data.ProductoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,12 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Producto;
+
 /**
  *
  * @author Usuario
  */
 public class ProductoController {
-     private Producto producto;
+    private Producto producto;
     private ProductoDAO productoDAO = new ProductoDAO();
     private Alert alerta = new Alert(AlertType.NONE);
 

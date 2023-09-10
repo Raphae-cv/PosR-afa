@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Cliente",
+            "request": "launch",
+            "mainClass": "model.Cliente",
+            "projectName": "PosR-afa_e9561373"
+        },
+        {
+            "type": "java",
+            "name": "ProductoView",
+            "request": "launch",
+            "mainClass": "view.ProductoView",
+            "projectName": "PosR-afa_e9561373"
+        },
+        {
+            "type": "java",
+            "name": "VentaView",
+            "request": "launch",
+            "mainClass": "view.VentaView",
+            "projectName": "PosR-afa_e9561373"
+        }
+    ]
+}
