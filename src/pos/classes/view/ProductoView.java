@@ -24,7 +24,7 @@ public class ProductoView extends Application {
     public static void main(String[] args) {
           launch(args);
     }
-
+// Metodo anterior para cargar la ventana
 //     @Override
 //     public void start(Stage stage) throws Exception {
 //         Parent parent = FXMLLoader.load(
@@ -35,9 +35,12 @@ public class ProductoView extends Application {
 //     }
 
 // }
-
+    // Variables para mover la ventana
     double yoffset;
     double xoffset;
+
+    // Metodo para cargar la ventana con el estilo de la ventana de inicio
+    // y con la funcionalidad de mover la ventana.
 
     @Override
     public void start(Stage primaryStage) throws IOException {
