@@ -22,7 +22,7 @@ public class ProductoView extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent parent = FXMLLoader.load(
-                getClass().getResource("/view/Inicio.fxml"));
+                getClass().getResource("/view/FormProducto.fxml"));
         Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
