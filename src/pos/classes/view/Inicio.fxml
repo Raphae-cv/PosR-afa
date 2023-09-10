@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #111315;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #111315; -fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductoController">
    <children>
-      <Pane prefHeight="1080.0" prefWidth="330.0" style="-fx-background-color: #111315;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="1080.0" prefWidth="330.0" style="-fx-background-color: #111315; -fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="330.0" stylesheets="@estilos.css">
+            <VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="330.0" style="-fx-background-radius: 15; -fx-border-radius: 15;" stylesheets="@estilos.css">
                <children>
                   <HBox alignment="CENTER" prefHeight="115.0" prefWidth="330.0">
                      <children>
@@ -60,7 +60,7 @@
                      </VBox.margin>
                   </Button>
                   <Pane prefHeight="397.0" prefWidth="330.0" />
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Salir" textFill="WHITE">
+                  <Button fx:id="btnSalir" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#setOnActionSalir" prefHeight="46.0" prefWidth="307.0" styleClass="btnMenu" text="Salir" textFill="#cd3232">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
