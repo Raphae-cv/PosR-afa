@@ -1,33 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import data.ProductoDAO;
+import data.UnidadMedida;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Producto;
 
 /**
  *
  * @author Usuario
  */
-public class ProductoController {
+public class ProductoController implements Initializable {
     private Producto producto;
+    private UnidadMedida unidadMedida;
     private ProductoDAO productoDAO;
     private Alert alerta = new Alert(AlertType.NONE);
 
-    ObservableList<Producto> productos = FXCollections.observableArrayList();
+    ObservableList<Producto> productos;
 
     @FXML
     private Button Nuevo;
@@ -57,6 +59,9 @@ public class ProductoController {
     private TableColumn<Producto, Number> columnaProductoPrecio;
 
     @FXML
+    private TableColumn<Producto, Number> columnaProductoPrecioUnidad;
+
+    @FXML
     private TableView<Producto> tableProducto;
 
     @FXML
@@ -72,18 +77,41 @@ public class ProductoController {
     private TextField textProductoPrecio;
 
     @FXML
+    private TextField textNombreUndMedida;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        productoDAO = new ProductoDAO();
+        productos = FXCollections.observableArrayList();
+
+        tableProducto.setItems(productos);
+        // Crear la columna y establecer su texto cabecera
+        columnaProductoCodigo.setCellValueFactory(new PropertyValueFactory<Producto, Number>("codigo"));
+        columnaProductoNombre.setCellValueFactory(new PropertyValueFactory<Producto, String>("nombre"));
+        columnaProductoPrecio.setCellValueFactory(new PropertyValueFactory<Producto, Number>("precio"));
+        columnaProductoCantidad.setCellValueFactory(new PropertyValueFactory<Producto, Number>("cantidad"));
+        columnaProductoPrecioUnidad.setCellValueFactory(new PropertyValueFactory<Producto, Number>("cantidadUnidad"));
+
+    }
+
+    @FXML
     private void setOnActionButtonGuardar(ActionEvent event) {
         try {
-            double precio;
-            int cantidad;
+            double precio = 0;
+            int cantidad = 0;
+
             precio = Double.parseDouble(textProductoPrecio.getText());
             cantidad = Integer.parseInt(textProductoCantidad.getText());
-            producto = new Producto(textProductoNombre.getText(), precio, cantidad);
+            unidadMedida = new UnidadMedida(textNombreUndMedida.getText());
+            producto = new Producto(textProductoNombre.getText(), precio, cantidad, unidadMedida);
             textProductoCodigo.setText(producto.getCodigo() + "");
+            productos.add(
+                    new Producto(producto.getCodigo(), textProductoNombre.getText(), precio, cantidad, unidadMedida));
 
-            productos.add(new Producto(producto.getCodigo(), textProductoNombre.getText(), precio, cantidad));
             // Agregar el producto a la lista
             productoDAO.agregar(producto);
+
             // Agregar los productos a la tabla
             tableProducto.setItems(productos);
 
@@ -93,7 +121,6 @@ public class ProductoController {
             alerta.show();
         } catch (Exception e) {
             // Mostrar mensaje de error con una alerta de error
-            System.out.println(e.getMessage());
             alerta.setAlertType(AlertType.ERROR);
             alerta.setContentText(e.getMessage());
             alerta.show();
@@ -152,12 +179,21 @@ public class ProductoController {
     private void setOnActionButtonActualizar(ActionEvent event) {
         try {
             int codigo;
+            int cantidad;
             double precio;
+            double precioUnidad;
             precio = Double.parseDouble(textProductoPrecio.getText());
             codigo = Integer.parseInt(textProductoCodigo.getText());
+            cantidad = Integer.parseInt(textProductoCantidad.getText());
             producto = productoDAO.buscar(codigo);
             producto.setNombre(textProductoNombre.getText());
             producto.setPrecio(precio);
+            producto.setCantidad(cantidad);
+
+            precioUnidad = Math.round((precio / cantidad) * 100.0) / 100.0;
+
+            // "$" + calcularPum() + "/" + unidadMedida.getNombre()
+            producto.setCantidadUnidad("$" + precioUnidad + "/" + textNombreUndMedida.getText());
             productoDAO.actualizar(producto);
 
             // Mostrar mensaje de éxito con una alerta de información
@@ -177,6 +213,7 @@ public class ProductoController {
         textProductoNombre.setText(producto.getNombre());
         textProductoPrecio.setText(producto.getPrecio() + "");
         textProductoCantidad.setText(producto.getCantidad() + "");
+        textNombreUndMedida.setText(producto.unidadMedida.getNombre());
     }
 
     private void limpiar() {
@@ -184,6 +221,7 @@ public class ProductoController {
         textProductoNombre.clear();
         textProductoPrecio.clear();
         textProductoCantidad.clear();
+        textNombreUndMedida.clear();
     }
 
 }

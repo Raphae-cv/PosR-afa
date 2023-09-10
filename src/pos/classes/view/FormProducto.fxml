@@ -15,7 +15,7 @@
     
    <children>
       <Button fx:id="buttonBuscar" layoutX="934.0" layoutY="134.0" mnemonicParsing="false" onAction="#setOnActionButtonBuscar" prefHeight="34.0" prefWidth="74.0" styleClass="btnVenta" stylesheets="@estilos.css" text="Buscar" />
-      <VBox layoutX="23.0" layoutY="181.0" prefHeight="185.0" prefWidth="366.0" spacing="10.0">
+      <VBox layoutX="23.0" layoutY="181.0" prefHeight="226.0" prefWidth="366.0" spacing="10.0">
          <padding>
             <Insets left="20.0" right="20.0" top="10.0" />
          </padding>
@@ -23,6 +23,7 @@
             <TextField fx:id="textProductoNombre" prefHeight="44.0" prefWidth="245.0" promptText="Nombre del producto" styleClass="text-fieldVenta" stylesheets="@estilos.css" />
             <TextField fx:id="textProductoPrecio" prefHeight="44.0" prefWidth="245.0" promptText="Precio del producto" styleClass="text-fieldVenta" stylesheets="@estilos.css" />
             <TextField fx:id="textProductoCantidad" prefHeight="44.0" prefWidth="245.0" promptText="Cantidad del producto" styleClass="text-fieldVenta" stylesheets="@estilos.css" />
+            <TextField fx:id="textNombreUndMedida" prefHeight="44.0" prefWidth="245.0" promptText="Unidad de medida" styleClass="text-fieldVenta" stylesheets="@estilos.css" />
          </children>
       </VBox>
       <Label layoutX="46.0" layoutY="66.0" text="Agregar producto" textFill="WHITE">
@@ -30,7 +31,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <VBox layoutX="23.0" layoutY="358.0" prefHeight="125.0" prefWidth="366.0">
+      <VBox layoutX="23.0" layoutY="417.0" prefHeight="125.0" prefWidth="366.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" stylesheets="@estilos.css">
                <children>
@@ -67,8 +68,9 @@
         <columns>
           <TableColumn fx:id="columnaProductoCodigo" prefWidth="81.5999755859375" text="Codigo" />
           <TableColumn fx:id="columnaProductoNombre" prefWidth="293.6000061035156" text="Nombre" />
-            <TableColumn fx:id="columnaProductoPrecio" prefWidth="136.0" text="Precio" />
-            <TableColumn fx:id="columnaProductoCantidad" prefWidth="66.4000244140625" text="Cantidad" />
+            <TableColumn fx:id="columnaProductoPrecio" prefWidth="106.400146484375" text="Precio" />
+            <TableColumn fx:id="columnaProductoCantidad" prefWidth="60.7998046875" text="Cantidad" />
+            <TableColumn fx:id="columnaProductoPrecioUnidad" prefWidth="86.4000244140625" text="Precio unidad" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

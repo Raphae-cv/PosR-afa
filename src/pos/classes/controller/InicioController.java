@@ -87,4 +87,6 @@ public class InicioController implements Initializable {
         // perfilFXMLController.set_valuePerfil(usuario.getUser_name());
     }
 
+    
+
 }

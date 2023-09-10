@@ -11,8 +11,7 @@ import model.Producto;
  */
 public class ProductoDAO {
 
-    private static ObservableList<Producto> productos
-            = FXCollections.observableArrayList();
+    private static ObservableList<Producto> productos = FXCollections.observableArrayList();
 
     public ProductoDAO() {
     }
@@ -25,11 +24,13 @@ public class ProductoDAO {
         productos = aProductos;
     }
 
+    // agregar
     public void agregar(Producto producto) {
         Objects.requireNonNull(producto, "producto no puede ser nulo");
         productos.add(producto);
-    }// agregar
+    }
 
+    // eliminar 
     public void eliminar(Producto producto) {
         Objects.requireNonNull(producto, "producto no puede ser nulo");
         int indice;
@@ -37,6 +38,7 @@ public class ProductoDAO {
         productos.remove(indice);
     }
 
+    // actualizar 
     public void actualizar(Producto producto) {
         Objects.requireNonNull(producto, "producto no puede ser nulo");
         int indice;
@@ -44,6 +46,7 @@ public class ProductoDAO {
         productos.set(indice, producto);
     }
 
+    // buscar
     public Producto buscar(int codigo) {
 
         for (Producto producto : productos) {
